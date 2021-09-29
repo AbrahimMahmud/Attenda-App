@@ -25,6 +25,7 @@ export class Register extends Component {
                 .set({
                     name,
                     email,
+                    password,
                 })
                 console.log("success: " + result)
             })

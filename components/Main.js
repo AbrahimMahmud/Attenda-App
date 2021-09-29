@@ -21,7 +21,7 @@ export class Main extends Component {
                 <Tab.Screen name = "Scan QR" component = {MainScanScreen} 
                 options = {{ 
                         headerShown: false,
-                        tabBarIcon: ({ color, size}) => (
+                        tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name = "qrcode-scan" color = {color} size = {26} />
                         ),
                     }}/>
