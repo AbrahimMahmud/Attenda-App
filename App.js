@@ -30,6 +30,7 @@ import MainScreen from "./components/Main";
 import LoginScreen from "./components/auth/Login";
 import ScheduleInfo1Screen from "./components/auth/ScheduleInfo1";
 import ScheduleInfo2Screen from "./components/auth/ScheduleInfo2";
+import Scanner from "./components/main/Scanner";
 
 const Stack = createStackNavigator();
 
@@ -100,6 +101,7 @@ export class App extends Component {
               name="ScheduleInfoTwo"
               component={ScheduleInfo2Screen}
             />
+            <Stack.Screen name="ScannerScreen" component={Scanner} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
