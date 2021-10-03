@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, Alert } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import firebase from "firebase";
 import moment from "moment";
@@ -38,7 +38,7 @@ export default function Scanner() {
     const day3 = "day3";
     const day4 = "day4";
 
-    const October1 = "10/01/2021";
+    const October2 = "10/02/2021";
     const October4 = "10/04/2021";
     const October5 = "10/05/2021";
     const October6 = "10/06/2021";
@@ -79,127 +79,127 @@ export default function Scanner() {
     const November23 = "11/23/2021";
     const November24 = "11/24/2021";
 
-    var Time = moment().utcOffset("-4:00").format("HHmm");
-    var TimeInt = parseInt(Time);
+    var TimeInt = moment().utcOffset("-4:00").format("HHmm");
+    Alert.alert("time", TimeInt, [{ text: "OK" }]);
 
     var date = moment().format("MM/DD/YYYY");
 
     var day;
-    if ((date = October1)) {
+    if (date == October2) {
       day = day2;
     }
-    if ((date = October4)) {
+    if (date == October4) {
       day = day1;
     }
-    if ((date = October5)) {
+    if (date == October5) {
       day = day4;
     }
-    if ((date = October6)) {
+    if (date == October6) {
       day = day3;
     }
-    if ((date = October7)) {
+    if (date == October7) {
       day = day2;
     }
-    if ((date = October8)) {
+    if (date == October8) {
       day = day1;
     }
-    if ((date = October11)) {
+    if (date == October11) {
       day = day4;
     }
-    if ((date = October12)) {
+    if (date == October12) {
       day = day3;
     }
-    if ((date = October13)) {
+    if (date == October13) {
       day = day2;
     }
-    if ((date = October14)) {
+    if (date == October14) {
       day = day1;
     }
-    if ((date = October15)) {
+    if (date == October15) {
       day = day4;
     }
-    if ((date = October18)) {
+    if (date == October18) {
       day = day3;
     }
-    if ((date = October19)) {
+    if (date == October19) {
       day = day2;
     }
-    if ((date = October20)) {
+    if (date == October20) {
       day = day1;
     }
-    if ((date = October21)) {
+    if (date == October21) {
       day = day4;
     }
-    if ((date = October22)) {
+    if (date == October22) {
       day = day3;
     }
-    if ((date = October25)) {
+    if (date == October25) {
       day = day2;
     }
-    if ((date = October26)) {
+    if (date == October26) {
       day = day1;
     }
-    if ((date = October27)) {
+    if (date == October27) {
       day = day4;
     }
-    if ((date = October28)) {
+    if (date == October28) {
       day = day3;
     }
-    if ((date = October29)) {
+    if (date == October29) {
       day = day2;
     }
-    if ((date = November1)) {
+    if (date == November1) {
       day = day1;
     }
-    if ((date = November2)) {
+    if (date == November2) {
       day = day4;
     }
-    if ((date = November3)) {
+    if (date == November3) {
       day = day3;
     }
-    if ((date = November4)) {
+    if (date == November4) {
       day = day2;
     }
-    if ((date = November5)) {
+    if (date == November5) {
       day = day1;
     }
-    if ((date = November8)) {
+    if (date == November8) {
       day = day4;
     }
-    if ((date = November9)) {
+    if (date == November9) {
       day = day3;
     }
-    if ((date = November10)) {
+    if (date == November10) {
       day = day2;
     }
-    if ((date = November11)) {
+    if (date == November11) {
       day = day1;
     }
-    if ((date = November12)) {
+    if (date == November12) {
       day = day4;
     }
-    if ((date = November15)) {
+    if (date == November15) {
       day = day3;
     }
-    if ((date = November16)) {
+    if (date == November16) {
       day = day2;
     }
-    if ((date = November17)) {
+    if (date == November17) {
       day = day1;
     }
-    if ((date = November18)) {
+    if (date == November18) {
       day = day4;
     }
-    if ((date = November19)) {
+    if (date == November19) {
       day = day3;
     }
-    if ((date = November22)) {
+    if (date == November22) {
       day = day2;
     }
-    if ((date = November23)) {
+    if (date == November23) {
       day = day1;
     }
-    if ((date = November24)) {
+    if (date == November24) {
       day = day4;
     }
     const firstBlockStart = 835;
@@ -209,12 +209,12 @@ export default function Scanner() {
     const fifthBlockStart = 1310;
     const sixthBlockStart = 1405;
 
-    const diffInTimeFirstBlock = firstBlockStart - TimeInt;
-    const diffInTimeSecondBlock = secondBlockStart - TimeInt;
-    const diffInTimeThirdBlock = thirdBlockStart - TimeInt;
-    const diffInTimeFourthBlock = fourthBlockStart - TimeInt;
-    const diffInTimeFifthBlock = fifthBlockStart - TimeInt;
-    const diffInTimeSixthBlock = sixthBlockStart - TimeInt;
+    var diffInTimeFirstBlock = firstBlockStart - TimeInt;
+    var diffInTimeSecondBlock = secondBlockStart - TimeInt;
+    var diffInTimeThirdBlock = thirdBlockStart - TimeInt;
+    var diffInTimeFourthBlock = fourthBlockStart - TimeInt;
+    var diffInTimeFifthBlock = fifthBlockStart - TimeInt;
+    var diffInTimeSixthBlock = sixthBlockStart - TimeInt;
 
     const tardy = "tardy";
     const present = "present";
@@ -223,11 +223,12 @@ export default function Scanner() {
     var attendance;
 
     //DAY 1
-    if ((day = day1)) {
+    if (day == day1) {
       //ROOM 111 BLOCK 1
-      if ((data = r111b1)) {
-        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -60) {
+      if (data == r111b1) {
+        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-1")
@@ -235,6 +236,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -244,7 +246,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFirstBlock < -60) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -253,12 +256,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 1
-      if ((data = r112b1)) {
-        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -60) {
+      if (data == r112b1) {
+        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-1")
@@ -266,6 +271,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -275,7 +281,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFirstBlock < -60) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -284,12 +291,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 2
-      if ((data = r111b2)) {
-        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -50) {
+      if (data == r111b2) {
+        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-2")
@@ -297,6 +306,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
           attendance = present;
           firebase
@@ -306,7 +316,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSecondBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -315,12 +326,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 2
-      if ((data = r112b2)) {
-        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -50) {
+      if (data == r112b2) {
+        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-2")
@@ -328,6 +341,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeSecondBlock <= 10) {
           attendance = present;
           firebase
@@ -337,7 +351,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSecondBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -346,12 +361,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 3
-      if ((data = r111b3)) {
-        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -50) {
+      if (data == r111b3) {
+        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-3")
@@ -359,6 +376,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -368,7 +386,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeThirdBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -377,12 +396,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 3
-      if ((data = r112b3)) {
-        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -50) {
+      if (data == r112b3) {
+        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-3")
@@ -390,6 +411,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -399,7 +421,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeThirdBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -408,12 +431,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 5
-      if ((data = r111b5)) {
-        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -50) {
+      if (data == r111b5) {
+        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-5")
@@ -421,6 +446,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -430,7 +456,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFourthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -439,12 +466,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 5
-      if ((data = r112b5)) {
-        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -50) {
+      if (data == r112b5) {
+        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-5")
@@ -452,6 +481,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -461,7 +491,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFourthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -470,12 +501,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 6
-      if ((data = r111b6)) {
-        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -50) {
+      if (data == r111b6) {
+        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-6")
@@ -483,6 +516,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -492,7 +526,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFifthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -501,12 +536,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 6
-      if ((data = r112b6)) {
-        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -50) {
+      if (data == r112b6) {
+        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-6")
@@ -514,6 +551,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -523,7 +561,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFifthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -532,12 +571,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 7
-      if ((data = r111b7)) {
-        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -55) {
+      if (data == r111b7) {
+        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-7")
@@ -545,6 +586,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -554,7 +596,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSixthBlock < -55) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -563,12 +606,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 7
-      if ((data = r112b7)) {
-        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -55) {
+      if (data == r112b7) {
+        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-7")
@@ -576,6 +621,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -585,7 +631,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSixthBlock < -55) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -594,16 +641,18 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
     }
 
     //DAY 2
-    if ((day = day2)) {
+    if (day == day2) {
       //ROOM 111 BLOCK 2
-      if ((data = r111b2)) {
-        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -60) {
+      if (data == r111b2) {
+        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-2")
@@ -611,6 +660,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -620,7 +670,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFirstBlock < -60) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -629,11 +680,12 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 2
-      if ((data = r112b2)) {
-        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -60) {
+      if (data == r112b2) {
+        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
           firebase
             .firestore()
@@ -642,6 +694,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -651,7 +704,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFirstBlock < -60) {
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
+        } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -660,12 +714,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 3
-      if ((data = r111b3)) {
-        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -50) {
+      if (data == r111b3) {
+        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-3")
@@ -673,6 +729,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeSecondBlock <= 10) {
           attendance = present;
           firebase
@@ -682,7 +739,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSecondBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -691,12 +749,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 3
-      if ((data = r112b3)) {
-        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -50) {
+      if (data == r112b3) {
+        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-3")
@@ -704,6 +764,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeSecondBlock <= 10) {
           attendance = present;
           firebase
@@ -713,7 +774,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSecondBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -722,12 +784,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 4
-      if ((data = r111b4)) {
-        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -50) {
+      if (data == r111b4) {
+        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-4")
@@ -735,6 +799,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -744,7 +809,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeThirdBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -753,12 +819,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 4
-      if ((data = r112b4)) {
-        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -50) {
+      if (data == r112b4) {
+        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-4")
@@ -766,6 +834,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -775,7 +844,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeThirdBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -784,12 +854,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 6
-      if ((data = r111b6)) {
-        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -50) {
+      if (data == r111b6) {
+        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-6")
@@ -797,6 +869,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -806,7 +879,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFourthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -815,12 +889,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 6
-      if ((data = r112b6)) {
-        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -50) {
+      if (data == r112b6) {
+        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-6")
@@ -828,6 +904,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -837,7 +914,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFourthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -846,12 +924,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 7
-      if ((data = r111b7)) {
-        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -50) {
+      if (data == r111b7) {
+        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-7")
@@ -859,6 +939,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -868,7 +949,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFifthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -877,12 +959,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 7
-      if ((data = r112b7)) {
-        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -50) {
+      if (data == r112b7) {
+        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-7")
@@ -890,6 +974,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -899,7 +984,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFifthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -908,12 +994,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 8
-      if ((data = r111b8)) {
-        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -55) {
+      if (data == r111b8) {
+        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-8")
@@ -921,6 +1009,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -930,7 +1019,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSixthBlock < -55) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -939,12 +1029,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 8
-      if ((data = r112b8)) {
-        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -55) {
+      if (data == r112b8) {
+        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-8")
@@ -952,6 +1044,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -961,7 +1054,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSixthBlock < -55) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -970,15 +1064,17 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
     }
     //DAY 3
-    if ((day = day3)) {
+    if (day == day3) {
       //ROOM 111 BLOCK 3
-      if ((data = r111b3)) {
-        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -60) {
+      if (data == r111b3) {
+        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-3")
@@ -986,6 +1082,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -995,7 +1092,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFirstBlock < -60) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -1004,12 +1102,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 3
-      if ((data = r112b3)) {
-        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -60) {
+      if (data == r112b3) {
+        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-3")
@@ -1017,6 +1117,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -1026,7 +1127,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFirstBlock < -60) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -1035,12 +1137,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 4
-      if ((data = r111b4)) {
-        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -50) {
+      if (data == r111b4) {
+        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-4")
@@ -1048,6 +1152,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
           attendance = present;
           firebase
@@ -1057,7 +1162,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSecondBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1066,12 +1172,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 4
-      if ((data = r112b4)) {
-        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -50) {
+      if (data == r112b4) {
+        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-4")
@@ -1079,6 +1187,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
           attendance = present;
           firebase
@@ -1088,7 +1197,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSecondBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1097,12 +1207,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 1
-      if ((data = r111b1)) {
-        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -50) {
+      if (data == r111b1) {
+        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-1")
@@ -1110,6 +1222,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -1119,7 +1232,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeThirdBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1128,12 +1242,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 1
-      if ((data = r112b1)) {
-        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -50) {
+      if (data == r112b1) {
+        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-1")
@@ -1141,6 +1257,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -1150,7 +1267,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeThirdBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1159,12 +1277,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 7
-      if ((data = r111b7)) {
-        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -50) {
+      if (data == r111b7) {
+        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-7")
@@ -1172,6 +1292,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -1181,7 +1302,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFourthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1190,12 +1312,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 7
-      if ((data = r112b7)) {
-        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -50) {
+      if (data == r112b7) {
+        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-7")
@@ -1203,6 +1327,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -1212,7 +1337,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFourthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1221,12 +1347,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 8
-      if ((data = r111b8)) {
-        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -50) {
+      if (data == r111b8) {
+        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-8")
@@ -1234,6 +1362,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -1243,7 +1372,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFifthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1252,12 +1382,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 8
-      if ((data = r112b8)) {
-        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -50) {
+      if (data == r112b8) {
+        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-8")
@@ -1265,6 +1397,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -1274,7 +1407,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFifthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1283,12 +1417,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 5
-      if ((data = r111b5)) {
-        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -55) {
+      if (data == r111b5) {
+        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-5")
@@ -1296,6 +1432,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -1305,7 +1442,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSixthBlock < -55) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -1314,12 +1452,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 5
-      if ((data = r112b5)) {
-        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -55) {
+      if (data == r112b5) {
+        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-5")
@@ -1327,6 +1467,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -1336,7 +1477,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSixthBlock < -55) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -1345,15 +1487,17 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
     }
     //DAY 4
-    if ((day = day4)) {
+    if (day == day4) {
       //ROOM 111 BLOCK 4
-      if ((data = r111b4)) {
-        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -60) {
+      if (data == r111b4) {
+        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-4")
@@ -1361,6 +1505,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -1370,7 +1515,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFirstBlock < -60) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -1379,12 +1525,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 4
-      if ((data = r112b4)) {
-        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -60) {
+      if (data == r112b4) {
+        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-4")
@@ -1392,6 +1540,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -1401,7 +1550,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFirstBlock < -60) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -1410,12 +1560,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 1
-      if ((data = r111b1)) {
-        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -50) {
+      if (data == r111b1) {
+        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-1")
@@ -1423,6 +1575,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
           attendance = present;
           firebase
@@ -1432,7 +1585,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSecondBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1441,12 +1595,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 1
-      if ((data = r112b1)) {
-        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -50) {
+      if (data == r112b1) {
+        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-1")
@@ -1454,6 +1610,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
           attendance = present;
           firebase
@@ -1463,7 +1620,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSecondBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1472,12 +1630,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 2
-      if ((data = r111b2)) {
-        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -50) {
+      if (data == r111b2) {
+        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-2")
@@ -1485,6 +1645,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -1494,7 +1655,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeThirdBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1503,12 +1665,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 2
-      if ((data = r112b2)) {
-        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -50) {
+      if (data == r112b2) {
+        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-2")
@@ -1516,6 +1680,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -1525,7 +1690,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeThirdBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1534,12 +1700,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 8
-      if ((data = r111b8)) {
-        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -50) {
+      if (data == r111b8) {
+        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-8")
@@ -1547,6 +1715,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -1556,7 +1725,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFourthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1565,12 +1735,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 8
-      if ((data = r112b8)) {
-        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -50) {
+      if (data == r112b8) {
+        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-8")
@@ -1578,6 +1750,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -1587,7 +1760,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFourthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1596,12 +1770,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 5
-      if ((data = r111b5)) {
-        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -50) {
+      if (data == r111b5) {
+        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-5")
@@ -1609,6 +1785,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -1618,7 +1795,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFifthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1627,12 +1805,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 5
-      if ((data = r112b5)) {
-        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -50) {
+      if (data == r112b5) {
+        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-5")
@@ -1640,6 +1820,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -1649,7 +1830,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeFifthBlock < -50) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
             .firestore()
@@ -1658,12 +1840,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 111 BLOCK 6
-      if ((data = r111b6)) {
-        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -55) {
+      if (data == r111b6) {
+        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("111-6")
@@ -1671,6 +1855,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -1680,7 +1865,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSixthBlock < -55) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -1689,12 +1875,14 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 6
-      if ((data = r112b6)) {
-        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -55) {
+      if (data == r112b6) {
+        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
+          alertTardy;
           firebase
             .firestore()
             .collection("112-6")
@@ -1702,6 +1890,7 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("TARDY", data, [{ text: "OK" }]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -1711,7 +1900,8 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-        } else if (diffInTimeSixthBlock < -55) {
+          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+        } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
             .firestore()
@@ -1720,12 +1910,13 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
+          Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
     }
     setScanned(true);
+    Alert.alert("DATE", date, [{ text: "OK" }]);
   };
-
   if (hasPermission === null) {
     return <Text>Requesting for camera permission</Text>;
   }
