@@ -28,8 +28,7 @@ import LandingScreen from "./components/auth/Landing";
 import RegisterScreen from "./components/auth/Register";
 import MainScreen from "./components/Main";
 import LoginScreen from "./components/auth/Login";
-import ScheduleInfo1Screen from "./components/auth/ScheduleInfo1";
-import ScheduleInfo2Screen from "./components/auth/ScheduleInfo2";
+import ScheduleInfoScreen from "./components/auth/ScheduleInfo";
 import Scanner from "./components/main/Scanner";
 
 const Stack = createStackNavigator();
@@ -87,20 +86,13 @@ export class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Main">
+          <Stack.Navigator initialRouteName="Attenda">
             <Stack.Screen
-              name="Main"
+              name="Attenda"
               component={MainScreen}
               options={{ headerShown: true }}
             />
-            <Stack.Screen
-              name="ScheduleInfoOne"
-              component={ScheduleInfo1Screen}
-            />
-            <Stack.Screen
-              name="ScheduleInfoTwo"
-              component={ScheduleInfo2Screen}
-            />
+            <Stack.Screen name="Schedule Information" component={ScheduleInfoScreen} />
             <Stack.Screen name="ScannerScreen" component={Scanner} />
           </Stack.Navigator>
         </NavigationContainer>

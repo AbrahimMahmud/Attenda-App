@@ -12,13 +12,17 @@ export class ScheduleInfo1 extends Component {
       blk3: "",
       blk4: "",
       name: "",
+      blk5: "",
+      blk6: "",
+      blk7: "",
+      blk8: "",
     };
 
-    this.toNextScreen = this.toNextScreen.bind(this);
+    this.backToProfileScreen = this.backToProfileScreen.bind(this);
   }
 
-  toNextScreen() {
-    const { blk1, blk2, blk3, blk4, name } = this.state;
+  backToProfileScreen() {
+    const { blk1, blk2, blk3, blk4, name, blk5, blk6, blk7, blk8 } = this.state;
     const r111b1 = "111-1";
     const r111b2 = "111-2";
     const r111b3 = "111-3";
@@ -27,6 +31,18 @@ export class ScheduleInfo1 extends Component {
     const r112b2 = "112-2";
     const r112b3 = "112-3";
     const r112b4 = "112-4";
+    const r111b5 = "111-5";
+    const r111b6 = "111-6";
+    const r111b7 = "111-7";
+    const r111b8 = "111-8";
+    const r112b5 = "112-5";
+    const r112b6 = "112-6";
+    const r112b7 = "112-7";
+    const r112b8 = "112-8";
+    var stringblk5 = String(blk5);
+    var stringblk6 = String(blk6);
+    var stringblk7 = String(blk7);
+    var stringblk8 = String(blk8);
     var stringblk1 = String(blk1);
     var stringblk2 = String(blk2);
     var stringblk3 = String(blk3);
@@ -112,6 +128,86 @@ export class ScheduleInfo1 extends Component {
         });
       console.log(stringblk4);
     }
+    if (stringblk5 == r111b5) {
+      firebase
+        .firestore()
+        .collection("111-5")
+        .doc(firebase.auth().currentUser.uid)
+        .set({
+          name: name,
+        });
+      console.log(stringblk5);
+    }
+    if (stringblk5 == r112b5) {
+      firebase
+        .firestore()
+        .collection("112-5")
+        .doc(firebase.auth().currentUser.uid)
+        .set({
+          name: name,
+        });
+      console.log(stringblk5);
+    }
+    if (stringblk6 == r111b6) {
+      firebase
+        .firestore()
+        .collection("111-6")
+        .doc(firebase.auth().currentUser.uid)
+        .set({
+          name: name,
+        });
+      console.log(stringblk6);
+    }
+    if (stringblk6 == r112b6) {
+      firebase
+        .firestore()
+        .collection("112-6")
+        .doc(firebase.auth().currentUser.uid)
+        .set({
+          name: name,
+        });
+      console.log(stringblk6);
+    }
+    if (stringblk7 == r111b7) {
+      firebase
+        .firestore()
+        .collection("111-7")
+        .doc(firebase.auth().currentUser.uid)
+        .set({
+          name: name,
+        });
+      console.log(stringblk7);
+    }
+    if (stringblk7 == r112b7) {
+      firebase
+        .firestore()
+        .collection("112-7")
+        .doc(firebase.auth().currentUser.uid)
+        .set({
+          name: name,
+        });
+      console.log(stringblk7);
+    }
+    if (stringblk8 == r111b8) {
+      firebase
+        .firestore()
+        .collection("111-8")
+        .doc(firebase.auth().currentUser.uid)
+        .set({
+          name: name,
+        });
+      console.log(stringblk8);
+    }
+    if (stringblk8 == r112b8) {
+      firebase
+        .firestore()
+        .collection("112-8")
+        .doc(firebase.auth().currentUser.uid)
+        .set({
+          name: name,
+        });
+      console.log(stringblk8);
+    }
     firebase
       .firestore()
       .collection("users")
@@ -129,6 +225,10 @@ export class ScheduleInfo1 extends Component {
               block2: blk2,
               block3: blk3,
               block4: blk4,
+              block5: blk5,
+              block6: blk6,
+              block7: blk7,
+              block8: blk8,
               name: name,
             });
         }
@@ -161,11 +261,27 @@ export class ScheduleInfo1 extends Component {
           placeholder="Block 4"
           onChangeText={(blk4) => this.setState({ blk4 })}
         />
+        <TextInput
+          placeholder="Block 5"
+          onChangeText={(blk5) => this.setState({ blk5 })}
+        />
+        <TextInput
+          placeholder="Block 6"
+          onChangeText={(blk6) => this.setState({ blk6 })}
+        />
+        <TextInput
+          placeholder="Block 7"
+          onChangeText={(blk7) => this.setState({ blk7 })}
+        />
+        <TextInput
+          placeholder="Block 8"
+          onChangeText={(blk8) => this.setState({ blk8 })}
+        />
         <Button
           title="Save"
           onPress={() => (
-            this.toNextScreen(),
-            this.props.navigation.navigate("ScheduleInfoTwo")
+            this.backToProfileScreen(),
+            this.props.navigation.navigate("Attenda")
           )}
         />
       </View>

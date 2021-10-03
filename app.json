@@ -4,11 +4,10 @@
     "slug": "Attenda_Attempt2",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/attendalogo.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/attendalogo.png",
+      "backgroundColor": "#B6E3FC"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -21,12 +20,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/adaptiveattendalogo.png",
+        "backgroundColor": "#B6E3FC"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/attendalogo.png"
     }
   }
 }

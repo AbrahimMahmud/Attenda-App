@@ -4,7 +4,7 @@ import { BarCodeScanner } from "expo-barcode-scanner";
 import firebase from "firebase";
 import moment from "moment";
 
-export default function Scanner() {
+export default function Scanner({ navigation }) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -80,7 +80,6 @@ export default function Scanner() {
     const November24 = "11/24/2021";
 
     var TimeInt = moment().utcOffset("-4:00").format("HHmm");
-    Alert.alert("time", TimeInt, [{ text: "OK" }]);
 
     var date = moment().format("MM/DD/YYYY");
 
@@ -230,7 +229,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
@@ -243,7 +242,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -253,7 +254,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
@@ -263,7 +266,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 1
@@ -272,7 +277,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
@@ -285,7 +290,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -295,7 +302,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
@@ -305,7 +314,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 2
@@ -314,7 +325,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
@@ -327,7 +338,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
           attendance = present;
           firebase
@@ -337,7 +350,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
@@ -347,8 +362,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
-          Alert.alert("DIFF IN TIME", diffInTimeFirstBlock, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 2
@@ -357,7 +373,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
@@ -370,7 +386,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeSecondBlock <= 10) {
           attendance = present;
           firebase
@@ -380,7 +398,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
@@ -390,7 +410,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 3
@@ -399,7 +421,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
@@ -412,7 +434,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -422,7 +446,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
@@ -432,7 +458,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 3
@@ -441,7 +469,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
@@ -454,7 +482,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -464,7 +494,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
@@ -474,21 +506,23 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       if (data == r111b4) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 4 ON A DAY 1",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       if (data == r112b4) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 4 ON A DAY 1",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       //ROOM 111 BLOCK 5
@@ -497,7 +531,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
@@ -510,7 +544,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -520,7 +556,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
@@ -530,7 +568,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 5
@@ -539,7 +579,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
@@ -552,7 +592,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -562,7 +604,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
@@ -572,7 +616,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 6
@@ -581,7 +627,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
@@ -594,7 +640,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -604,7 +652,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
@@ -614,7 +664,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 6
@@ -623,7 +675,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
@@ -636,7 +688,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -646,7 +700,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
@@ -656,7 +712,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 7
@@ -665,7 +723,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
@@ -678,7 +736,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -688,7 +748,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
@@ -698,7 +760,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 7
@@ -707,7 +771,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
@@ -720,7 +784,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -730,7 +796,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
@@ -740,7 +808,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
     }
@@ -751,14 +821,14 @@ export default function Scanner() {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 1 ON A DAY 2",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       if (data == r112b1) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 1 ON A DAY 2",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       //ROOM 111 BLOCK 2
@@ -767,7 +837,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
@@ -780,7 +850,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -790,7 +862,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
@@ -800,7 +874,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 2
@@ -809,7 +885,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
@@ -821,7 +897,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -831,7 +909,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
@@ -841,7 +921,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 3
@@ -850,7 +932,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
@@ -863,7 +945,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeSecondBlock <= 10) {
           attendance = present;
           firebase
@@ -873,7 +957,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
@@ -883,7 +969,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 3
@@ -892,7 +980,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
@@ -905,7 +993,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeSecondBlock <= 10) {
           attendance = present;
           firebase
@@ -915,7 +1005,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
@@ -925,7 +1017,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 4
@@ -934,7 +1028,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
@@ -947,7 +1041,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -957,7 +1053,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
@@ -967,7 +1065,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 4
@@ -976,7 +1076,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
@@ -989,7 +1089,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -999,7 +1101,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
@@ -1009,21 +1113,23 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       if (data == r111b5) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 5 ON A DAY 2",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       if (data == r112b5) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 5 ON A DAY 2",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       //ROOM 111 BLOCK 6
@@ -1032,7 +1138,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
@@ -1045,7 +1151,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -1055,7 +1163,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
@@ -1065,7 +1175,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 6
@@ -1074,7 +1186,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
@@ -1087,7 +1199,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -1097,7 +1211,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
@@ -1107,7 +1223,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 7
@@ -1116,7 +1234,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
@@ -1129,7 +1247,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -1139,7 +1259,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
@@ -1149,7 +1271,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 7
@@ -1158,7 +1282,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
@@ -1171,7 +1295,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -1181,7 +1307,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
@@ -1191,7 +1319,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 8
@@ -1200,7 +1330,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
@@ -1213,7 +1343,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -1223,7 +1355,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
@@ -1233,7 +1367,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 8
@@ -1242,7 +1378,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
@@ -1255,7 +1391,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -1265,7 +1403,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
@@ -1275,7 +1415,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
     }
@@ -1285,14 +1427,14 @@ export default function Scanner() {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 2 ON A DAY 3",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       if (data == r112b2) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 2 ON A DAY 3",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       //ROOM 111 BLOCK 3
@@ -1301,7 +1443,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
@@ -1314,7 +1456,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -1324,7 +1468,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
@@ -1334,7 +1480,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 3
@@ -1343,7 +1491,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
@@ -1356,7 +1504,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -1366,7 +1516,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
@@ -1376,7 +1528,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 4
@@ -1385,7 +1539,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
@@ -1398,7 +1552,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
           attendance = present;
           firebase
@@ -1408,7 +1564,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
@@ -1418,7 +1576,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 4
@@ -1427,7 +1587,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
@@ -1440,7 +1600,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
           attendance = present;
           firebase
@@ -1450,7 +1612,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
@@ -1460,7 +1624,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 1
@@ -1469,7 +1635,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
@@ -1482,7 +1648,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -1492,7 +1660,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
@@ -1502,7 +1672,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 1
@@ -1511,7 +1683,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
@@ -1524,7 +1696,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -1534,7 +1708,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
@@ -1544,21 +1720,23 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       if (data == r111b6) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 6 ON A DAY 3",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       if (data == r112b6) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 6 ON A DAY 3",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       //ROOM 111 BLOCK 7
@@ -1567,7 +1745,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
@@ -1580,7 +1758,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -1590,7 +1770,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
@@ -1600,7 +1782,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 7
@@ -1609,7 +1793,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
@@ -1622,7 +1806,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -1632,7 +1818,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
@@ -1642,7 +1830,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 8
@@ -1651,7 +1841,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
@@ -1664,7 +1854,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -1674,7 +1866,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
@@ -1684,7 +1878,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 8
@@ -1693,7 +1889,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
@@ -1706,7 +1902,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -1716,7 +1914,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
@@ -1726,7 +1926,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 5
@@ -1735,7 +1937,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
@@ -1748,7 +1950,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -1758,7 +1962,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
@@ -1768,7 +1974,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 5
@@ -1777,7 +1985,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
@@ -1790,7 +1998,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -1800,7 +2010,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
@@ -1810,7 +2022,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
     }
@@ -1822,7 +2036,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
@@ -1835,7 +2049,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -1845,7 +2061,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
@@ -1855,7 +2073,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 4
@@ -1864,7 +2084,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
@@ -1877,7 +2097,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
           attendance = present;
           firebase
@@ -1887,7 +2109,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFirstBlock < -100) {
           attendance = absent;
           firebase
@@ -1897,7 +2121,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 1
@@ -1906,7 +2132,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
@@ -1919,7 +2145,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
           attendance = present;
           firebase
@@ -1929,7 +2157,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
@@ -1939,7 +2169,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 1
@@ -1948,7 +2180,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
@@ -1961,7 +2193,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
           attendance = present;
           firebase
@@ -1971,7 +2205,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSecondBlock < -90) {
           attendance = absent;
           firebase
@@ -1981,7 +2217,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 2
@@ -1990,7 +2228,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
@@ -2003,7 +2241,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -2013,7 +2253,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
@@ -2023,7 +2265,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 2
@@ -2032,7 +2276,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
@@ -2045,7 +2289,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
           attendance = present;
           firebase
@@ -2055,7 +2301,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeThirdBlock < -90) {
           attendance = absent;
           firebase
@@ -2065,21 +2313,23 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       if (data == r111b3) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 3 ON A DAY 4",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       if (data == r112b3) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 3 ON A DAY 4",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       //ROOM 111 BLOCK 8
@@ -2088,7 +2338,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
@@ -2101,7 +2351,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -2111,7 +2363,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
@@ -2121,7 +2375,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 8
@@ -2130,7 +2386,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
@@ -2143,7 +2399,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
           attendance = present;
           firebase
@@ -2153,7 +2411,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFourthBlock < -90) {
           attendance = absent;
           firebase
@@ -2163,7 +2423,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 5
@@ -2172,7 +2434,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
@@ -2185,7 +2447,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -2195,7 +2459,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
@@ -2205,7 +2471,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 5
@@ -2214,7 +2482,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
@@ -2227,7 +2495,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
           attendance = present;
           firebase
@@ -2237,7 +2507,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeFifthBlock < -90) {
           attendance = absent;
           firebase
@@ -2247,7 +2519,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 111 BLOCK 6
@@ -2256,7 +2530,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
@@ -2269,7 +2543,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -2279,7 +2555,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
@@ -2289,7 +2567,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       //ROOM 112 BLOCK 6
@@ -2298,7 +2578,7 @@ export default function Scanner() {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
             "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK" }]
+            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
           );
         }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
@@ -2311,7 +2591,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("TARDY", data, [{ text: "OK" }]);
+          Alert.alert("TARDY", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
           attendance = present;
           firebase
@@ -2321,7 +2603,9 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("PRESENT", data, [{ text: "OK" }]);
+          Alert.alert("PRESENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         } else if (diffInTimeSixthBlock < -100) {
           attendance = absent;
           firebase
@@ -2331,26 +2615,27 @@ export default function Scanner() {
             .update({
               status: attendance,
             });
-          Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("ABSENT", data, [
+            { text: "OK", onPress: () => navigation.navigate("Attenda") },
+          ]);
         }
       }
       if (data == r111b7) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 7 ON A DAY 4",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
       if (data == r112b7) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 7 ON A DAY 4",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK" }]
+          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
     }
     setScanned(true);
-    Alert.alert("DATE", date, [{ text: "OK" }]);
   };
   if (hasPermission === null) {
     return <Text>Requesting for camera permission</Text>;
@@ -2364,9 +2649,6 @@ export default function Scanner() {
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
-      {scanned && (
-        <Button title={"Tap to Scan Again"} onPress={() => setScanned(false)} />
-      )}
     </View>
   );
 }
