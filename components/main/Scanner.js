@@ -38,7 +38,7 @@ export default function Scanner() {
     const day3 = "day3";
     const day4 = "day4";
 
-    const October2 = "10/02/2021";
+    const October3 = "10/03/2021";
     const October4 = "10/04/2021";
     const October5 = "10/05/2021";
     const October6 = "10/06/2021";
@@ -85,7 +85,7 @@ export default function Scanner() {
     var date = moment().format("MM/DD/YYYY");
 
     var day;
-    if (date == October2) {
+    if (date == October3) {
       day = day2;
     }
     if (date == October4) {
@@ -226,6 +226,13 @@ export default function Scanner() {
     if (day == day1) {
       //ROOM 111 BLOCK 1
       if (data == r111b1) {
+        if (diffInTimeFirstBlock > 35) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -261,6 +268,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 1
       if (data == r112b1) {
+        if (diffInTimeFirstBlock > 35) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -296,6 +310,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 2
       if (data == r111b2) {
+        if (diffInTimeSecondBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -327,10 +348,18 @@ export default function Scanner() {
               status: attendance,
             });
           Alert.alert("ABSENT", data, [{ text: "OK" }]);
+          Alert.alert("DIFF IN TIME", diffInTimeFirstBlock, [{ text: "OK" }]);
         }
       }
       //ROOM 112 BLOCK 2
       if (data == r112b2) {
+        if (diffInTimeSecondBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -366,6 +395,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 3
       if (data == r111b3) {
+        if (diffInTimeThirdBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -401,6 +437,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 3
       if (data == r112b3) {
+        if (diffInTimeThirdBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -434,8 +477,29 @@ export default function Scanner() {
           Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
+      if (data == r111b4) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 4 ON A DAY 1",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
+      if (data == r112b4) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 4 ON A DAY 1",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
       //ROOM 111 BLOCK 5
       if (data == r111b5) {
+        if (diffInTimeFourthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -471,6 +535,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 5
       if (data == r112b5) {
+        if (diffInTimeFourthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -506,6 +577,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 6
       if (data == r111b6) {
+        if (diffInTimeFifthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -541,6 +619,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 6
       if (data == r112b6) {
+        if (diffInTimeFifthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -576,6 +661,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 7
       if (data == r111b7) {
+        if (diffInTimeSixthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -611,6 +703,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 7
       if (data == r112b7) {
+        if (diffInTimeSixthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -648,8 +747,29 @@ export default function Scanner() {
 
     //DAY 2
     if (day == day2) {
+      if (data == r111b1) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 1 ON A DAY 2",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
+      if (data == r112b1) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 1 ON A DAY 2",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
       //ROOM 111 BLOCK 2
       if (data == r111b2) {
+        if (diffInTimeFirstBlock > 35) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -685,6 +805,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 2
       if (data == r112b2) {
+        if (diffInTimeFirstBlock > 35) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
           firebase
@@ -719,6 +846,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 3
       if (data == r111b3) {
+        if (diffInTimeSecondBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -754,6 +888,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 3
       if (data == r112b3) {
+        if (diffInTimeSecondBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -789,6 +930,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 4
       if (data == r111b4) {
+        if (diffInTimeThirdBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -824,6 +972,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 4
       if (data == r112b4) {
+        if (diffInTimeThirdBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -857,8 +1012,29 @@ export default function Scanner() {
           Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
+      if (data == r111b5) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 5 ON A DAY 2",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
+      if (data == r112b5) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 5 ON A DAY 2",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
       //ROOM 111 BLOCK 6
       if (data == r111b6) {
+        if (diffInTimeFourthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -894,6 +1070,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 6
       if (data == r112b6) {
+        if (diffInTimeFourthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -929,6 +1112,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 7
       if (data == r111b7) {
+        if (diffInTimeFifthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -964,6 +1154,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 7
       if (data == r112b7) {
+        if (diffInTimeFifthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -999,6 +1196,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 8
       if (data == r111b8) {
+        if (diffInTimeSixthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -1034,6 +1238,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 8
       if (data == r112b8) {
+        if (diffInTimeSixthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -1070,8 +1281,29 @@ export default function Scanner() {
     }
     //DAY 3
     if (day == day3) {
+      if (data == r111b2) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 2 ON A DAY 3",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
+      if (data == r112b2) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 2 ON A DAY 3",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
       //ROOM 111 BLOCK 3
       if (data == r111b3) {
+        if (diffInTimeFirstBlock > 35) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -1107,6 +1339,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 3
       if (data == r112b3) {
+        if (diffInTimeFirstBlock > 35) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -1142,6 +1381,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 4
       if (data == r111b4) {
+        if (diffInTimeSecondBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1177,6 +1423,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 4
       if (data == r112b4) {
+        if (diffInTimeSecondBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1212,6 +1465,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 1
       if (data == r111b1) {
+        if (diffInTimeThirdBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1247,6 +1507,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 1
       if (data == r112b1) {
+        if (diffInTimeThirdBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1280,8 +1547,29 @@ export default function Scanner() {
           Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
+      if (data == r111b6) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 6 ON A DAY 3",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
+      if (data == r112b6) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 6 ON A DAY 3",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
       //ROOM 111 BLOCK 7
       if (data == r111b7) {
+        if (diffInTimeFourthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1317,6 +1605,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 7
       if (data == r112b7) {
+        if (diffInTimeFourthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1352,6 +1647,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 8
       if (data == r111b8) {
+        if (diffInTimeFifthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1387,6 +1689,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 8
       if (data == r112b8) {
+        if (diffInTimeFifthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1422,6 +1731,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 5
       if (data == r111b5) {
+        if (diffInTimeSixthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -1457,6 +1773,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 5
       if (data == r112b5) {
+        if (diffInTimeSixthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -1495,6 +1818,13 @@ export default function Scanner() {
     if (day == day4) {
       //ROOM 111 BLOCK 4
       if (data == r111b4) {
+        if (diffInTimeFirstBlock > 35) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -1530,6 +1860,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 4
       if (data == r112b4) {
+        if (diffInTimeFirstBlock > 35) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -1565,6 +1902,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 1
       if (data == r111b1) {
+        if (diffInTimeSecondBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1600,6 +1944,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 1
       if (data == r112b1) {
+        if (diffInTimeSecondBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1635,6 +1986,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 2
       if (data == r111b2) {
+        if (diffInTimeThirdBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1670,6 +2028,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 2
       if (data == r112b2) {
+        if (diffInTimeThirdBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1703,8 +2068,29 @@ export default function Scanner() {
           Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
       }
+      if (data == r111b3) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 3 ON A DAY 4",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
+      if (data == r112b3) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 3 ON A DAY 4",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
       //ROOM 111 BLOCK 8
       if (data == r111b8) {
+        if (diffInTimeFourthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1740,6 +2126,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 8
       if (data == r112b8) {
+        if (diffInTimeFourthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1775,6 +2168,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 5
       if (data == r111b5) {
+        if (diffInTimeFifthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1810,6 +2210,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 5
       if (data == r112b5) {
+        if (diffInTimeFifthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
           alertTardy;
@@ -1845,6 +2252,13 @@ export default function Scanner() {
       }
       //ROOM 111 BLOCK 6
       if (data == r111b6) {
+        if (diffInTimeSixthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -1880,6 +2294,13 @@ export default function Scanner() {
       }
       //ROOM 112 BLOCK 6
       if (data == r112b6) {
+        if (diffInTimeSixthBlock > 10) {
+          Alert.alert(
+            "YOU ARE TOO EARLY TO THIS CLASS",
+            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
+            [{ text: "OK" }]
+          );
+        }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
           alertTardy;
@@ -1912,6 +2333,20 @@ export default function Scanner() {
             });
           Alert.alert("ABSENT", data, [{ text: "OK" }]);
         }
+      }
+      if (data == r111b7) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 7 ON A DAY 4",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
+      }
+      if (data == r112b7) {
+        Alert.alert(
+          "YOU DO NOT HAVE BLOCK 7 ON A DAY 4",
+          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
+          [{ text: "OK" }]
+        );
       }
     }
     setScanned(true);
