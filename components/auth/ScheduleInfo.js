@@ -27,23 +27,18 @@ export class ScheduleInfo1 extends Component {
     const r403b1 = "403-1";
     const r403b3 = "403-3";
     const r403b4 = "403-4";
-    const r403b5 = "403-5";
-    const r403b8 = "403-8";
 
     //ROOM 409
     const r409b1 = "409-1";
     const r409b2 = "409-2";
     const r409b3 = "409-3";
-    const r409b4 = "409-4";
-    const r409b5 = "409-5";
-    const r409b6 = "409-6";
-    var stringblk5 = String(blk5);
-    var stringblk6 = String(blk6);
-    var stringblk8 = String(blk8);
     var stringblk1 = String(blk1);
     var stringblk2 = String(blk2);
     var stringblk3 = String(blk3);
     var stringblk4 = String(blk4);
+    var stringblk5 = String(blk5);
+    var stringblk6 = String(blk6);
+    var stringblk8 = String(blk8);
 
     //ROOM 403
     if (stringblk1 == r403b1) {
@@ -76,26 +71,6 @@ export class ScheduleInfo1 extends Component {
         });
       console.log(stringblk4);
     }
-    if (stringblk5 == r403b5) {
-      firebase
-        .firestore()
-        .collection("403-5")
-        .doc(firebase.auth().currentUser.uid)
-        .set({
-          name: name,
-        });
-      console.log(stringblk5);
-    }
-    if (stringblk8 == r403b8) {
-      firebase
-        .firestore()
-        .collection("403-8")
-        .doc(firebase.auth().currentUser.uid)
-        .set({
-          name: name,
-        });
-      console.log(stringblk8);
-    }
 
     //ROOM 409
     if (stringblk1 == r409b1) {
@@ -127,36 +102,6 @@ export class ScheduleInfo1 extends Component {
           name: name,
         });
       console.log(stringblk3);
-    }
-    if (stringblk4 == r409b4) {
-      firebase
-        .firestore()
-        .collection("409-4")
-        .doc(firebase.auth().currentUser.uid)
-        .set({
-          name: name,
-        });
-      console.log(stringblk4);
-    }
-    if (stringblk5 == r409b5) {
-      firebase
-        .firestore()
-        .collection("409-5")
-        .doc(firebase.auth().currentUser.uid)
-        .set({
-          name: name,
-        });
-      console.log(stringblk5);
-    }
-    if (stringblk6 == r409b6) {
-      firebase
-        .firestore()
-        .collection("409-6")
-        .doc(firebase.auth().currentUser.uid)
-        .set({
-          name: name,
-        });
-      console.log(stringblk6);
     }
     firebase
       .firestore()
