@@ -23,9 +23,6 @@
         "foregroundImage": "./assets/adaptiveattendalogo.png",
         "backgroundColor": "#B6E3FC"
       }
-    },
-    "web": {
-      "favicon": "./assets/attendalogo.png"
     }
   }
 }

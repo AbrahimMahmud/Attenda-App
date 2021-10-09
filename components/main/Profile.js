@@ -19,7 +19,7 @@ export default function Profile({ navigation }) {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: "center" }}>
+    <View style={{ flex: 1, justifyContent: "center", backgroundColor: "#B6E3FC" }}>
       <Button
         title="Edit Schedule Info"
         onPress={() => navigation.navigate("Schedule Information")}

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -90,9 +90,17 @@ export class App extends Component {
             <Stack.Screen
               name="Attenda"
               component={MainScreen}
-              options={{ headerShown: true }}
+              options={{
+                headerShown: true,
+                headerStyle: { backgroundColor: "#B6E3FC" },
+                headerTintColor: "#B6E3FC"
+              }}
             />
-            <Stack.Screen name="Schedule Information" component={ScheduleInfoScreen} />
+            <Stack.Screen
+              name="Schedule Information"
+              component={ScheduleInfoScreen}
+              options={{ headerStyle: { backgroundColor: "#B6E3FC" }, headerShown: true }}
+            />
             <Stack.Screen name="ScannerScreen" component={Scanner} />
           </Stack.Navigator>
         </NavigationContainer>

@@ -16,28 +16,25 @@ export default function Scanner({ navigation }) {
   }, []);
 
   const handleBarCodeScanned = ({ type, data }) => {
-    const r111b1 = "111-1";
-    const r111b2 = "111-2";
-    const r111b3 = "111-3";
-    const r111b4 = "111-4";
-    const r111b5 = "111-5";
-    const r111b6 = "111-6";
-    const r111b7 = "111-7";
-    const r111b8 = "111-8";
-    const r112b1 = "112-1";
-    const r112b2 = "112-2";
-    const r112b3 = "112-3";
-    const r112b4 = "112-4";
-    const r112b5 = "112-5";
-    const r112b6 = "112-6";
-    const r112b7 = "112-7";
-    const r112b8 = "112-8";
+    const r403b1 = "403-1";
+    const r403b3 = "403-3";
+    const r403b4 = "403-4";
+    const r403b5 = "403-5";
+    const r403b8 = "403-8";
+
+    const r409b1 = "409-1";
+    const r409b2 = "409-2";
+    const r409b3 = "409-3";
+    const r409b4 = "409-4";
+    const r409b5 = "409-5";
+    const r409b6 = "409-6";
 
     const day1 = "day1";
     const day2 = "day2";
     const day3 = "day3";
     const day4 = "day4";
 
+    const October9 = "10/09/2021";
     const October3 = "10/03/2021";
     const October4 = "10/04/2021";
     const October5 = "10/05/2021";
@@ -84,6 +81,10 @@ export default function Scanner({ navigation }) {
     var date = moment().format("MM/DD/YYYY");
 
     var day;
+
+    if (date == October9) {
+      day = day1;
+    }
     if (date == October3) {
       day = day2;
     }
@@ -223,8 +224,8 @@ export default function Scanner({ navigation }) {
 
     //DAY 1
     if (day == day1) {
-      //ROOM 111 BLOCK 1
-      if (data == r111b1) {
+      //ROOM 403 BLOCK 1
+      if (data == r403b1) {
         if (diffInTimeFirstBlock > 35) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -234,10 +235,10 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
-          alertTardy;
+          
           firebase
             .firestore()
-            .collection("111-1")
+            .collection("403-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -249,7 +250,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-1")
+            .collection("403-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -261,7 +262,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-1")
+            .collection("403-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -271,8 +272,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 1
-      if (data == r112b1) {
+      //ROOM 409 BLOCK 1
+      if (data == r409b1) {
         if (diffInTimeFirstBlock > 35) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -282,10 +283,10 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
-          alertTardy;
+          
           firebase
             .firestore()
-            .collection("112-1")
+            .collection("409-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -297,7 +298,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-1")
+            .collection("409-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -309,7 +310,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-1")
+            .collection("409-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -319,8 +320,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 111 BLOCK 2
-      if (data == r111b2) {
+      //ROOM 409 BLOCK 2
+      if (data == r409b2) {
         if (diffInTimeSecondBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -330,58 +331,10 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
-          alertTardy;
+          
           firebase
             .firestore()
-            .collection("111-2")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("111-2")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSecondBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("111-2")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 112 BLOCK 2
-      if (data == r112b2) {
-        if (diffInTimeSecondBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("112-2")
+            .collection("409-2")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -393,7 +346,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-2")
+            .collection("409-2")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -405,7 +358,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-2")
+            .collection("409-2")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -415,8 +368,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 111 BLOCK 3
-      if (data == r111b3) {
+      //ROOM 403 BLOCK 3
+      if (data == r403b3) {
         if (diffInTimeThirdBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -426,10 +379,10 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
-          alertTardy;
+          
           firebase
             .firestore()
-            .collection("111-3")
+            .collection("403-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -441,7 +394,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-3")
+            .collection("403-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -453,7 +406,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-3")
+            .collection("403-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -463,8 +416,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 3
-      if (data == r112b3) {
+      //ROOM 409 BLOCK 3
+      if (data == r409b3) {
         if (diffInTimeThirdBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -474,10 +427,10 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
-          alertTardy;
+          
           firebase
             .firestore()
-            .collection("112-3")
+            .collection("409-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -489,7 +442,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-3")
+            .collection("409-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -501,7 +454,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-3")
+            .collection("409-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -511,22 +464,22 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      if (data == r111b4) {
+      if (data == r403b4) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 4 ON A DAY 1",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
           [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
-      if (data == r112b4) {
+      if (data == r409b4) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 4 ON A DAY 1",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
           [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
-      //ROOM 111 BLOCK 5
-      if (data == r111b5) {
+      //ROOM 403 BLOCK 5
+      if (data == r403b5) {
         if (diffInTimeFourthBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -536,10 +489,10 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
-          alertTardy;
+          
           firebase
             .firestore()
-            .collection("111-5")
+            .collection("403-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -551,7 +504,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-5")
+            .collection("403-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -563,7 +516,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-5")
+            .collection("403-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -573,8 +526,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 5
-      if (data == r112b5) {
+      //ROOM 409 BLOCK 5
+      if (data == r409b5) {
         if (diffInTimeFourthBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -584,10 +537,10 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
-          alertTardy;
+          
           firebase
             .firestore()
-            .collection("112-5")
+            .collection("409-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -599,7 +552,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-5")
+            .collection("409-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -611,7 +564,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-5")
+            .collection("409-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -621,8 +574,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 111 BLOCK 6
-      if (data == r111b6) {
+      //ROOM 409 BLOCK 6
+      if (data == r409b6) {
         if (diffInTimeFifthBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -632,10 +585,10 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
-          alertTardy;
+          
           firebase
             .firestore()
-            .collection("111-6")
+            .collection("409-6")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -647,7 +600,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-6")
+            .collection("409-6")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -659,151 +612,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-6")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 112 BLOCK 6
-      if (data == r112b6) {
-        if (diffInTimeFifthBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("112-6")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("112-6")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFifthBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("112-6")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 111 BLOCK 7
-      if (data == r111b7) {
-        if (diffInTimeSixthBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("111-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("111-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSixthBlock < -100) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("111-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 112 BLOCK 7
-      if (data == r112b7) {
-        if (diffInTimeSixthBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("112-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("112-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSixthBlock < -100) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("112-7")
+            .collection("409-6")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -817,70 +626,22 @@ export default function Scanner({ navigation }) {
 
     //DAY 2
     if (day == day2) {
-      if (data == r111b1) {
+      if (data == r403b1) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 1 ON A DAY 2",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
           [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
-      if (data == r112b1) {
+      if (data == r409b1) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 1 ON A DAY 2",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
           [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
-      //ROOM 111 BLOCK 2
-      if (data == r111b2) {
-        if (diffInTimeFirstBlock > 35) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("111-2")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("111-2")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFirstBlock < -100) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("111-2")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 112 BLOCK 2
-      if (data == r112b2) {
+      //ROOM 409 BLOCK 2
+      if (data == r409b2) {
         if (diffInTimeFirstBlock > 35) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -892,7 +653,7 @@ export default function Scanner({ navigation }) {
           attendance = tardy;
           firebase
             .firestore()
-            .collection("112-2")
+            .collection("409-2")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -904,7 +665,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-2")
+            .collection("409-2")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -916,7 +677,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-2")
+            .collection("409-2")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -926,8 +687,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 111 BLOCK 3
-      if (data == r111b3) {
+      //ROOM 403 BLOCK 3
+      if (data == r403b3) {
         if (diffInTimeSecondBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -937,10 +698,10 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
-          alertTardy;
+          
           firebase
             .firestore()
-            .collection("111-3")
+            .collection("403-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -952,7 +713,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-3")
+            .collection("403-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -964,7 +725,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-3")
+            .collection("403-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -974,8 +735,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 3
-      if (data == r112b3) {
+      //ROOM 409 BLOCK 3
+      if (data == r409b3) {
         if (diffInTimeSecondBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -985,10 +746,10 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
-          alertTardy;
+          
           firebase
             .firestore()
-            .collection("112-3")
+            .collection("409-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1000,7 +761,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-3")
+            .collection("409-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1012,7 +773,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-3")
+            .collection("409-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1022,8 +783,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 111 BLOCK 4
-      if (data == r111b4) {
+      //ROOM 403 BLOCK 4
+      if (data == r403b4) {
         if (diffInTimeThirdBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1033,10 +794,10 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
-          alertTardy;
+          
           firebase
             .firestore()
-            .collection("111-4")
+            .collection("403-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1048,7 +809,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-4")
+            .collection("403-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1060,7 +821,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-4")
+            .collection("403-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1070,8 +831,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 4
-      if (data == r112b4) {
+      //ROOM 409 BLOCK 4
+      if (data == r409b4) {
         if (diffInTimeThirdBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1081,10 +842,10 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
-          alertTardy;
+          
           firebase
             .firestore()
-            .collection("112-4")
+            .collection("409-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1096,7 +857,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-4")
+            .collection("409-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1108,7 +869,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-4")
+            .collection("409-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1118,22 +879,22 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      if (data == r111b5) {
+      if (data == r403b5) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 5 ON A DAY 2",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
           [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
-      if (data == r112b5) {
+      if (data == r409b5) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 5 ON A DAY 2",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
           [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
-      //ROOM 111 BLOCK 6
-      if (data == r111b6) {
+      //ROOM 409 BLOCK 6
+      if (data == r409b6) {
         if (diffInTimeFourthBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1143,10 +904,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-6")
+            .collection("409-6")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1158,7 +918,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-6")
+            .collection("409-6")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1170,7 +930,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-6")
+            .collection("409-6")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1180,152 +940,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 6
-      if (data == r112b6) {
-        if (diffInTimeFourthBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("112-6")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("112-6")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFourthBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("112-6")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 111 BLOCK 7
-      if (data == r111b7) {
-        if (diffInTimeFifthBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("111-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("111-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFifthBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("111-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 112 BLOCK 7
-      if (data == r112b7) {
-        if (diffInTimeFifthBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("112-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("112-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFifthBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("112-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 111 BLOCK 8
-      if (data == r111b8) {
+      //ROOM 403 BLOCK 8
+      if (data == r403b8) {
         if (diffInTimeSixthBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1335,10 +951,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-8")
+            .collection("403-8")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1350,7 +965,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-8")
+            .collection("403-8")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1362,55 +977,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-8")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 112 BLOCK 8
-      if (data == r112b8) {
-        if (diffInTimeSixthBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("112-8")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("112-8")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSixthBlock < -100) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("112-8")
+            .collection("403-8")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1423,22 +990,15 @@ export default function Scanner({ navigation }) {
     }
     //DAY 3
     if (day == day3) {
-      if (data == r111b2) {
+      if (data == r409b2) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 2 ON A DAY 3",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
           [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
-      if (data == r112b2) {
-        Alert.alert(
-          "YOU DO NOT HAVE BLOCK 2 ON A DAY 3",
-          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-        );
-      }
-      //ROOM 111 BLOCK 3
-      if (data == r111b3) {
+      //ROOM 403 BLOCK 3
+      if (data == r403b3) {
         if (diffInTimeFirstBlock > 35) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1448,10 +1008,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-3")
+            .collection("403-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1463,7 +1022,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-3")
+            .collection("403-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1475,7 +1034,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-3")
+            .collection("403-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1485,8 +1044,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 3
-      if (data == r112b3) {
+      //ROOM 409 BLOCK 3
+      if (data == r409b3) {
         if (diffInTimeFirstBlock > 35) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1496,10 +1055,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("112-3")
+            .collection("409-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1511,7 +1069,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-3")
+            .collection("409-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1523,7 +1081,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-3")
+            .collection("409-3")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1533,8 +1091,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 111 BLOCK 4
-      if (data == r111b4) {
+      //ROOM 403 BLOCK 4
+      if (data == r403b4) {
         if (diffInTimeSecondBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1544,10 +1102,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-4")
+            .collection("403-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1555,11 +1112,11 @@ export default function Scanner({ navigation }) {
           Alert.alert("TARDY", data, [
             { text: "OK", onPress: () => navigation.navigate("Attenda") },
           ]);
-        } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
+        } else if (diffInTimeSecondBlock >= 0 && diffInTimeSecondBlock <= 10) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-4")
+            .collection("403-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1571,7 +1128,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-4")
+            .collection("403-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1581,8 +1138,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 4
-      if (data == r112b4) {
+      //ROOM 409 BLOCK 4
+      if (data == r409b4) {
         if (diffInTimeSecondBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1592,10 +1149,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("112-4")
+            .collection("409-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1603,11 +1159,11 @@ export default function Scanner({ navigation }) {
           Alert.alert("TARDY", data, [
             { text: "OK", onPress: () => navigation.navigate("Attenda") },
           ]);
-        } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
+        } else if (diffInTimeSecondBlock >= 0 && diffInTimeSecondBlock <= 10) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-4")
+            .collection("409-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1619,7 +1175,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-4")
+            .collection("409-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1629,8 +1185,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 111 BLOCK 1
-      if (data == r111b1) {
+      //ROOM 403 BLOCK 1
+      if (data == r403b1) {
         if (diffInTimeThirdBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1640,10 +1196,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-1")
+            .collection("403-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1655,7 +1210,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-1")
+            .collection("403-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1667,7 +1222,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-1")
+            .collection("403-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1677,8 +1232,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 1
-      if (data == r112b1) {
+      //ROOM 409 BLOCK 1
+      if (data == r409b1) {
         if (diffInTimeThirdBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1688,10 +1243,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("112-1")
+            .collection("409-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1703,7 +1257,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-1")
+            .collection("409-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1715,7 +1269,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-1")
+            .collection("409-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1725,118 +1279,15 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      if (data == r111b6) {
+      if (data == r409b6) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 6 ON A DAY 3",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
           [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
-      if (data == r112b6) {
-        Alert.alert(
-          "YOU DO NOT HAVE BLOCK 6 ON A DAY 3",
-          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-        );
-      }
-      //ROOM 111 BLOCK 7
-      if (data == r111b7) {
-        if (diffInTimeFourthBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("111-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("111-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFourthBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("111-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 112 BLOCK 7
-      if (data == r112b7) {
-        if (diffInTimeFourthBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("112-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("112-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFourthBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("112-7")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 111 BLOCK 8
-      if (data == r111b8) {
+      //ROOM 403 BLOCK 8
+      if (data == r403b8) {
         if (diffInTimeFifthBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1846,10 +1297,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-8")
+            .collection("403-8")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1861,7 +1311,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-8")
+            .collection("403-8")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1873,7 +1323,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-8")
+            .collection("403-8")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1883,56 +1333,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 8
-      if (data == r112b8) {
-        if (diffInTimeFifthBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("112-8")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFifthBlock >= 0 && diffInTimeFifthBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("112-8")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFifthBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("112-8")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 111 BLOCK 5
-      if (data == r111b5) {
+      //ROOM 403 BLOCK 5
+      if (data == r403b5) {
         if (diffInTimeSixthBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1942,10 +1344,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-5")
+            .collection("403-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1957,7 +1358,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-5")
+            .collection("403-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1969,7 +1370,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-5")
+            .collection("403-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -1979,8 +1380,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 5
-      if (data == r112b5) {
+      //ROOM 409 BLOCK 5
+      if (data == r409b5) {
         if (diffInTimeSixthBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1990,10 +1391,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("112-5")
+            .collection("409-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2005,7 +1405,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-5")
+            .collection("409-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2017,7 +1417,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-5")
+            .collection("409-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2030,8 +1430,8 @@ export default function Scanner({ navigation }) {
     }
     //DAY 4
     if (day == day4) {
-      //ROOM 111 BLOCK 4
-      if (data == r111b4) {
+      //ROOM 403 BLOCK 4
+      if (data == r403b4) {
         if (diffInTimeFirstBlock > 35) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -2041,10 +1441,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-4")
+            .collection("403-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2056,7 +1455,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-4")
+            .collection("403-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2068,7 +1467,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-4")
+            .collection("403-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2078,8 +1477,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 4
-      if (data == r112b4) {
+      //ROOM 409 BLOCK 4
+      if (data == r409b4) {
         if (diffInTimeFirstBlock > 35) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -2089,10 +1488,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("112-4")
+            .collection("409-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2104,7 +1502,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-4")
+            .collection("409-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2116,7 +1514,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-4")
+            .collection("409-4")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2126,8 +1524,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 111 BLOCK 1
-      if (data == r111b1) {
+      //ROOM 403 BLOCK 1
+      if (data == r403b1) {
         if (diffInTimeSecondBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -2137,10 +1535,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-1")
+            .collection("403-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2148,11 +1545,11 @@ export default function Scanner({ navigation }) {
           Alert.alert("TARDY", data, [
             { text: "OK", onPress: () => navigation.navigate("Attenda") },
           ]);
-        } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
+        } else if (diffInTimeSecondBlock >= 0 && diffInTimeSecondBlock <= 10) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-1")
+            .collection("403-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2164,7 +1561,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-1")
+            .collection("403-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2174,8 +1571,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 1
-      if (data == r112b1) {
+      //ROOM 409 BLOCK 1
+      if (data == r409b1) {
         if (diffInTimeSecondBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -2185,10 +1582,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("112-1")
+            .collection("409-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2196,11 +1592,11 @@ export default function Scanner({ navigation }) {
           Alert.alert("TARDY", data, [
             { text: "OK", onPress: () => navigation.navigate("Attenda") },
           ]);
-        } else if (diffInTimeSecondBlock >= 0 && diffInTimeFirstBlock <= 10) {
+        } else if (diffInTimeSecondBlock >= 0 && diffInTimeSecondBlock <= 10) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-1")
+            .collection("409-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2212,7 +1608,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-1")
+            .collection("409-1")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2222,8 +1618,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 111 BLOCK 2
-      if (data == r111b2) {
+      //ROOM 409 BLOCK 2
+      if (data == r409b2) {
         if (diffInTimeThirdBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -2233,10 +1629,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-2")
+            .collection("409-2")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2248,7 +1643,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-2")
+            .collection("409-2")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2260,7 +1655,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-2")
+            .collection("409-2")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2270,70 +1665,22 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 2
-      if (data == r112b2) {
-        if (diffInTimeThirdBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("112-2")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("112-2")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeThirdBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("112-2")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      if (data == r111b3) {
+      if (data == r403b3) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 3 ON A DAY 4",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
           [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
-      if (data == r112b3) {
+      if (data == r409b3) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 3 ON A DAY 4",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
           [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
-      //ROOM 111 BLOCK 8
-      if (data == r111b8) {
+      //ROOM 403 BLOCK 8
+      if (data == r403b8) {
         if (diffInTimeFourthBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -2343,10 +1690,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-8")
+            .collection("403-8")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2358,7 +1704,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-8")
+            .collection("403-8")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2370,7 +1716,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-8")
+            .collection("403-8")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2380,56 +1726,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 8
-      if (data == r112b8) {
-        if (diffInTimeFourthBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeFourthBlock < 0 && diffInTimeFourthBlock > -90) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("112-8")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFourthBlock >= 0 && diffInTimeFourthBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("112-8")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFourthBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("112-8")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 111 BLOCK 5
-      if (data == r111b5) {
+      //ROOM 403 BLOCK 5
+      if (data == r403b5) {
         if (diffInTimeFifthBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -2439,10 +1737,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-5")
+            .collection("403-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2454,7 +1751,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-5")
+            .collection("403-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2466,7 +1763,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-5")
+            .collection("403-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2476,8 +1773,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 112 BLOCK 5
-      if (data == r112b5) {
+      //ROOM 409 BLOCK 5
+      if (data == r409b5) {
         if (diffInTimeFifthBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -2487,10 +1784,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFifthBlock < 0 && diffInTimeFifthBlock > -90) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("112-5")
+            .collection("409-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2502,7 +1798,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("112-5")
+            .collection("409-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2514,7 +1810,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("112-5")
+            .collection("409-5")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2524,8 +1820,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 111 BLOCK 6
-      if (data == r111b6) {
+      //ROOM 409 BLOCK 6
+      if (data == r409b6) {
         if (diffInTimeSixthBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -2535,10 +1831,9 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
           attendance = tardy;
-          alertTardy;
           firebase
             .firestore()
-            .collection("111-6")
+            .collection("409-6")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2550,7 +1845,7 @@ export default function Scanner({ navigation }) {
           attendance = present;
           firebase
             .firestore()
-            .collection("111-6")
+            .collection("409-6")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2562,7 +1857,7 @@ export default function Scanner({ navigation }) {
           attendance = absent;
           firebase
             .firestore()
-            .collection("111-6")
+            .collection("409-6")
             .doc(firebase.auth().currentUser.uid)
             .update({
               status: attendance,
@@ -2571,68 +1866,6 @@ export default function Scanner({ navigation }) {
             { text: "OK", onPress: () => navigation.navigate("Attenda") },
           ]);
         }
-      }
-      //ROOM 112 BLOCK 6
-      if (data == r112b6) {
-        if (diffInTimeSixthBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeSixthBlock < 0 && diffInTimeSixthBlock > -100) {
-          attendance = tardy;
-          alertTardy;
-          firebase
-            .firestore()
-            .collection("112-6")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSixthBlock >= 0 && diffInTimeSixthBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("112-6")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSixthBlock < -100) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("112-6")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      if (data == r111b7) {
-        Alert.alert(
-          "YOU DO NOT HAVE BLOCK 7 ON A DAY 4",
-          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-        );
-      }
-      if (data == r112b7) {
-        Alert.alert(
-          "YOU DO NOT HAVE BLOCK 7 ON A DAY 4",
-          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-        );
       }
     }
     setScanned(true);

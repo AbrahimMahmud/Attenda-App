@@ -18,18 +18,18 @@ export class Main extends Component {
     render() {
         return (
             <Tab.Navigator>
-                <Tab.Screen name = "Scan QR" component = {MainScanScreen} 
+                <Tab.Screen name = "Scan QR" component = {MainScanScreen}
                 options = {{ 
                         headerShown: false,
                         tabBarIcon: ({ color, size }) => (
-                            <MaterialCommunityIcons name = "qrcode-scan" color = {color} size = {26} />
+                            <MaterialCommunityIcons name = "qrcode-scan" size = {26} color = "#94A6FF"/>
                         ),
                     }}/>
-                <Tab.Screen name = "Profile" component = {ProfileScreen} 
+                <Tab.Screen name = "Profile" component = {ProfileScreen}
                 options = {{ 
                         headerShown: false,
-                        tabBarIcon: ({ color, size}) => (
-                            <MaterialCommunityIcons name = "account-circle" color = {color} size = {26} />
+                        tabBarIcon: ({ color, size }) => (
+                            <MaterialCommunityIcons name = "account-circle" color = "#94A6FF" size = {26} />
                         ),
                     }}/>
             </Tab.Navigator>

@@ -30,17 +30,34 @@ export class Login extends Component {
 
   render() {
     return (
-      <View>
-        <TextInput
-          placeholder="email"
-          onChangeText={(email) => this.setState({ email })}
-        />
-        <TextInput
-          placeholder="password"
-          secureTextEntry={true}
-          onChangeText={(password) => this.setState({ password })}
-        />
-        <Button onPress={() => this.onSignUp()} title="Sign In" />
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#B6E3FC",
+        }}
+      >
+        <View
+          style={{ flex: 9, justifyContent: "center", alignItems: "center" }}
+        >
+          <TextInput
+            style={{ fontSize: 20 }}
+            placeholder="email"
+            onChangeText={(email) => this.setState({ email })}
+          />
+          <TextInput
+            style={{ paddingTop: 10, fontSize: 20 }}
+            placeholder="password"
+            secureTextEntry={true}
+            onChangeText={(password) => this.setState({ password })}
+          />
+        </View>
+        <View
+          style={{ flex: 10, alignItems: "center", justifyContent: "center" }}
+        >
+          <Button onPress={() => this.onSignUp()} title="Sign In" />
+        </View>
       </View>
     );
   }
