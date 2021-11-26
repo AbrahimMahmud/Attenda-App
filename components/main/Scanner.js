@@ -15,61 +15,114 @@ export default function Scanner({ navigation }) {
     })();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }) => {
-    const r403b1 = "403-1";
-    const r403b3 = "403-3";
-    const r403b4 = "403-4";
+  const handleBarCodeScanned = ({ data }) => {
+    //room 403 block 1 qr codes
+    const r403n1 = "403n1"
+    const r403n2 = "403n2"
+    const r403n3 = "403n3"
+    const r403n4 = "403n4"
+    const r403n5 = "403n5"
+    const r403n6 = "403n6"
+    const r403n7 = "403n7"
+    const r403n8 = "403n8"
+    const r403n9 = "403n9"
+    const r403n10 = "403n10"
+    const r403n11 = "403n11"
+    const r403n12 = "403n12"
+    const r403n13 = "403n13"
+    const r403n14 = "403n14"
+    const r403n15 = "403n15"
+    const r403n16 = "403n16"
+    const r403n17 = "403n17"
 
-    const r409b1 = "409-1";
-    const r409b2 = "409-2";
-    const r409b3 = "409-3";
+    //room 403 block 4 qr codes
+    const r403n18 = "403n18"
+    const r403n19 = "403n19"
+    const r403n20 = "403n20"
+    const r403n21 = "403n21"
+    const r403n22 = "403n22"
+    const r403n23 = "403n23"
+    const r403n24 = "403n24"
+    const r403n25 = "403n25"
+    const r403n26 = "403n26"
+    const r403n27 = "403n27"
+    const r403n28 = "403n28"
+    const r403n29 = "403n29"
+    const r403n30 = "403n30"
+    const r403n31 = "403n31"
+    const r403n32 = "403n32"
+    const r403n33 = "403n33"
+    const r403n34 = "403n34"
+
+    //room 409 block 1 qr codes
+    const r409n1 = "409n1"
+    const r409n2 = "409n2"
+    const r409n3 = "409n3"
+    const r409n4 = "409n4"
+    const r409n5 = "409n5"
+    const r409n6 = "409n6"
+    const r409n7 = "409n7"
+    const r409n8 = "409n8"
+    const r409n9 = "409n9"
+    const r409n10 = "409n10"
+    const r409n11 = "409n11"
+    const r409n12 = "409n12"
+    const r409n13 = "409n13"
+    const r409n14 = "409n14"
+    const r409n15 = "409n15"
+    const r409n16 = "409n16"
+    const r409n17 = "409n17"
+
+    //room 409 block 2 qr codes
+    const r409n18 = "409n18"
+    const r409n19 = "409n19"
+    const r409n20 = "409n20"
+    const r409n21 = "409n21"
+    const r409n22 = "409n22"
+    const r409n23 = "409n23"
+    const r409n24 = "409n24"
+    const r409n25 = "409n25"
+    const r409n26 = "409n26"
+    const r409n27 = "409n27"
+    const r409n28 = "409n28"
+    const r409n29 = "409n29"
+    const r409n30 = "409n30"
+    const r409n31 = "409n31"
+    const r409n32 = "409n32"
+    const r409n33 = "409n33"
+    const r409n34 = "409n34"
 
     const day1 = "day1";
     const day2 = "day2";
     const day3 = "day3";
     const day4 = "day4";
 
-    const October9 = "10/09/2021";
-    const October3 = "10/03/2021";
-    const October4 = "10/04/2021";
-    const October5 = "10/05/2021";
-    const October6 = "10/06/2021";
-    const October7 = "10/07/2021";
-    const October8 = "10/08/2021";
-    const October11 = "10/11/2021";
-    const October12 = "10/12/2021";
-    const October13 = "10/13/2021";
-    const October14 = "10/14/2021";
-    const October15 = "10/15/2021";
-    const October18 = "10/18/2021";
-    const October19 = "10/19/2021";
-    const October20 = "10/20/2021";
-    const October21 = "10/21/2021";
-    const October22 = "10/22/2021";
-    const October25 = "10/25/2021";
-    const October26 = "10/26/2021";
-    const October27 = "10/27/2021";
-    const October28 = "10/28/2021";
-    const October29 = "10/29/2021";
-
-    const November1 = "11/01/2021";
-    const November2 = "11/02/2021";
-    const November3 = "11/03/2021";
-    const November4 = "11/04/2021";
-    const November5 = "11/05/2021";
-    const November8 = "11/08/2021";
-    const November9 = "11/09/2021";
-    const November10 = "11/10/2021";
-    const November11 = "11/11/2021";
-    const November12 = "11/12/2021";
-    const November15 = "11/15/2021";
-    const November16 = "11/16/2021";
-    const November17 = "11/17/2021";
-    const November18 = "11/18/2021";
-    const November19 = "11/19/2021";
-    const November22 = "11/22/2021";
-    const November23 = "11/23/2021";
+    //november dates
     const November24 = "11/24/2021";
+    const November29 = "11/29/2021";
+    const November30 = "11/30/2021";
+
+    //december dates
+    const December1 = "12/01/2021";
+    const December2 = "12/02/2021";
+    const December3 = "12/03/2021";
+    const December6 = "12/06/2021";
+    const December7 = "12/07/2021";
+    const December8 = "12/08/2021";
+    const December9 = "12/09/2021";
+    const December10 = "12/10/2021";
+    const December13 = "12/13/2021";
+    const December14 = "12/14/2021";
+    const December15 = "12/15/2021";
+    const December16 = "12/16/2021";
+    const December17 = "12/17/2021";
+
+    //test dates
+    const testdate = "11/26/2021";
+
+    //extra dates (week with only two full days)
+    const December20 = "12/20/2021";
+    const December21 = "12/21/2021";
 
     var TimeInt = moment().utcOffset("-4:00").format("HHmm");
 
@@ -77,126 +130,145 @@ export default function Scanner({ navigation }) {
 
     var day;
 
-    if (date == October9) {
-      day = day3;
-    }
-    if (date == October3) {
-      day = day2;
-    }
-    if (date == October4) {
+    //var for qr codes
+    var room403b1;
+    var room403b4;
+    var room409b1;
+    var room409b2;
+
+    if (date == testdate) {
       day = day1;
+      room403b1 = r403n1;
+      room403b4 = r403n18;
+      room409b1 = r409n1;
+      room409b2 = r409n18;
     }
-    if (date == October5) {
+
+    //START OF EXPERIMENT
+    if (date == November29) {
       day = day4;
+      room403b1 = r403n1;
+      room403b4 = r403n18;
+      room409b1 = r409n1;
+      room409b2 = r409n18;
     }
-    if (date == October6) {
+    if (date == November30) {
       day = day3;
+      room403b1 = r403n2;
+      room403b4 = r403n19;
+      room409b1 = r409n2;
+      room409b2 = r409n19;
     }
-    if (date == October7) {
+    if (date == December1) {
       day = day2;
+      room403b1 = r403n3;
+      room403b4 = r403n20;
+      room409b1 = r409n3;
+      room409b2 = r409n20;
     }
-    if (date == October8) {
+    if (date == December2) {
       day = day1;
+      room403b1 = r403n4;
+      room403b4 = r403n21;
+      room409b1 = r409n4;
+      room409b2 = r409n21;
     }
-    if (date == October11) {
+    if (date == December3) {
       day = day4;
+      room403b1 = r403n5;
+      room403b4 = r403n22;
+      room409b1 = r409n5;
+      room409b2 = r409n22;
     }
-    if (date == October12) {
+    if (date == December6) {
       day = day3;
+      room403b1 = r403n6;
+      room403b4 = r403n23;
+      room409b1 = r409n6;
+      room409b2 = r409n23;
     }
-    if (date == October13) {
+    if (date == December7) {
       day = day2;
+      room403b1 = r403n7;
+      room403b4 = r403n24;
+      room409b1 = r409n7;
+      room409b2 = r409n24;
     }
-    if (date == October14) {
+    if (date == December8) {
       day = day1;
+      room403b1 = r403n8;
+      room403b4 = r403n25;
+      room409b1 = r409n8;
+      room409b2 = r409n25;
     }
-    if (date == October15) {
+    if (date == December9) {
       day = day4;
+      room403b1 = r403n9;
+      room403b4 = r403n26;
+      room409b1 = r409n9;
+      room409b2 = r409n26;
     }
-    if (date == October18) {
+    if (date == December10) {
       day = day3;
+      room403b1 = r403n10;
+      room403b4 = r403n27;
+      room409b1 = r409n10;
+      room409b2 = r409n27;
     }
-    if (date == October19) {
+    if (date == December13) {
       day = day2;
+      room403b1 = r403n11;
+      room403b4 = r403n28;
+      room409b1 = r409n11;
+      room409b2 = r409n28;
     }
-    if (date == October20) {
+    if (date == December14) {
       day = day1;
+      room403b1 = r403n12;
+      room403b4 = r403n29;
+      room409b1 = r409n12;
+      room409b2 = r409n29;
     }
-    if (date == October21) {
+    if (date == December15) {
       day = day4;
+      room403b1 = r403n13;
+      room403b4 = r403n30;
+      room409b1 = r409n13;
+      room409b2 = r409n30;
     }
-    if (date == October22) {
+    if (date == December16) {
       day = day3;
+      room403b1 = r403n14;
+      room403b4 = r403n31;
+      room409b1 = r409n14;
+      room409b2 = r409n31;
     }
-    if (date == October25) {
+    if (date == December17) {
       day = day2;
+      room403b1 = r403n15;
+      room403b4 = r403n32;
+      room409b1 = r409n15;
+      room409b2 = r409n32;
     }
-    if (date == October26) {
+    //END OF EXPERIMENT
+
+    //START OF EXTRA DAYS
+    if (date == December20) {
       day = day1;
+      room403b1 = r403n16;
+      room403b4 = r403n33;
+      room409b1 = r409n16;
+      room409b2 = r409n33;
     }
-    if (date == October27) {
+    if (date == December21) {
       day = day4;
+      room403b1 = r403n17;
+      room403b4 = r403n34;
+      room409b1 = r409n17;
+      room409b2 = r409n34;
     }
-    if (date == October28) {
-      day = day3;
-    }
-    if (date == October29) {
-      day = day2;
-    }
-    if (date == November1) {
-      day = day1;
-    }
-    if (date == November2) {
-      day = day4;
-    }
-    if (date == November3) {
-      day = day3;
-    }
-    if (date == November4) {
-      day = day2;
-    }
-    if (date == November5) {
-      day = day1;
-    }
-    if (date == November8) {
-      day = day4;
-    }
-    if (date == November9) {
-      day = day3;
-    }
-    if (date == November10) {
-      day = day2;
-    }
-    if (date == November11) {
-      day = day1;
-    }
-    if (date == November12) {
-      day = day4;
-    }
-    if (date == November15) {
-      day = day3;
-    }
-    if (date == November16) {
-      day = day2;
-    }
-    if (date == November17) {
-      day = day1;
-    }
-    if (date == November18) {
-      day = day4;
-    }
-    if (date == November19) {
-      day = day3;
-    }
-    if (date == November22) {
-      day = day2;
-    }
-    if (date == November23) {
-      day = day1;
-    }
-    if (date == November24) {
-      day = day4;
-    }
+    //END OF EXTRA DAYS
+
     const firstBlockStart = 835;
     const secondBlockStart = 940;
     const thirdBlockStart = 1035;
@@ -214,7 +286,7 @@ export default function Scanner({ navigation }) {
     //DAY 1
     if (day == day1) {
       //ROOM 403 BLOCK 1
-      if (data == r403b1) {
+      if (data == room403b1) {
         if (diffInTimeFirstBlock > 35) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -224,7 +296,6 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
           attendance = tardy;
-          
           firebase
             .firestore()
             .collection("403-1")
@@ -262,7 +333,7 @@ export default function Scanner({ navigation }) {
         }
       }
       //ROOM 409 BLOCK 1
-      if (data == r409b1) {
+      if (data == room409b1) {
         if (diffInTimeFirstBlock > 35) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -309,7 +380,7 @@ export default function Scanner({ navigation }) {
         }
       }
       //ROOM 409 BLOCK 2
-      if (data == r409b2) {
+      if (data == room409b2) {
         if (diffInTimeSecondBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -319,7 +390,7 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
           attendance = tardy;
-          
+
           firebase
             .firestore()
             .collection("409-2")
@@ -356,102 +427,7 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 403 BLOCK 3
-      if (data == r403b3) {
-        if (diffInTimeThirdBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
-          attendance = tardy;
-          firebase
-            .firestore()
-            .collection("403-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("403-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeThirdBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("403-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 409 BLOCK 3
-      if (data == r409b3) {
-        if (diffInTimeThirdBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
-          attendance = tardy;
-          
-          firebase
-            .firestore()
-            .collection("409-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeThirdBlock >= 0 && diffInTimeThirdBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("409-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeThirdBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("409-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      if (data == r403b4) {
+      if (data == room403b4) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 4 ON A DAY 1",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
@@ -462,14 +438,14 @@ export default function Scanner({ navigation }) {
 
     //DAY 2
     if (day == day2) {
-      if (data == r403b1) {
+      if (data == room403b1) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 1 ON A DAY 2",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
           [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
-      if (data == r409b1) {
+      if (data == room409b1) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 1 ON A DAY 2",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
@@ -477,7 +453,7 @@ export default function Scanner({ navigation }) {
         );
       }
       //ROOM 409 BLOCK 2
-      if (data == r409b2) {
+      if (data == room409b2) {
         if (diffInTimeFirstBlock > 35) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -523,104 +499,8 @@ export default function Scanner({ navigation }) {
           ]);
         }
       }
-      //ROOM 403 BLOCK 3
-      if (data == r403b3) {
-        if (diffInTimeSecondBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
-          attendance = tardy;
-          
-          firebase
-            .firestore()
-            .collection("403-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSecondBlock >= 0 && diffInTimeSecondBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("403-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSecondBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("403-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 409 BLOCK 3
-      if (data == r409b3) {
-        if (diffInTimeSecondBlock > 10) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeSecondBlock < 0 && diffInTimeSecondBlock > -90) {
-          attendance = tardy;
-          
-          firebase
-            .firestore()
-            .collection("409-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSecondBlock >= 0 && diffInTimeSecondBlock <= 10) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("409-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeSecondBlock < -90) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("409-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
       //ROOM 403 BLOCK 4
-      if (data == r403b4) {
+      if (data == room403b4) {
         if (diffInTimeThirdBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -630,7 +510,7 @@ export default function Scanner({ navigation }) {
         }
         if (diffInTimeThirdBlock < 0 && diffInTimeThirdBlock > -90) {
           attendance = tardy;
-          
+
           firebase
             .firestore()
             .collection("403-4")
@@ -670,109 +550,15 @@ export default function Scanner({ navigation }) {
     }
     //DAY 3
     if (day == day3) {
-      if (data == r409b2) {
+      if (data == room409b2) {
         Alert.alert(
           "YOU DO NOT HAVE BLOCK 2 ON A DAY 3",
           "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
           [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
         );
       }
-      //ROOM 403 BLOCK 3
-      if (data == r403b3) {
-        if (diffInTimeFirstBlock > 35) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
-          attendance = tardy;
-          firebase
-            .firestore()
-            .collection("403-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("403-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFirstBlock < -100) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("403-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
-      //ROOM 409 BLOCK 3
-      if (data == r409b3) {
-        if (diffInTimeFirstBlock > 35) {
-          Alert.alert(
-            "YOU ARE TOO EARLY TO THIS CLASS",
-            "PLEASE WAIT FOR CLASS TO BEGIN, THEN SCAN THE QR TO BE MARKED IN",
-            [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-          );
-        }
-        if (diffInTimeFirstBlock < 0 && diffInTimeFirstBlock > -100) {
-          attendance = tardy;
-          firebase
-            .firestore()
-            .collection("409-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("TARDY", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFirstBlock >= 0 && diffInTimeFirstBlock <= 35) {
-          attendance = present;
-          firebase
-            .firestore()
-            .collection("409-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("PRESENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        } else if (diffInTimeFirstBlock < -100) {
-          attendance = absent;
-          firebase
-            .firestore()
-            .collection("409-3")
-            .doc(firebase.auth().currentUser.uid)
-            .update({
-              status: attendance,
-            });
-          Alert.alert("ABSENT", data, [
-            { text: "OK", onPress: () => navigation.navigate("Attenda") },
-          ]);
-        }
-      }
       //ROOM 403 BLOCK 4
-      if (data == r403b4) {
+      if (data == room403b4) {
         if (diffInTimeSecondBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -819,7 +605,7 @@ export default function Scanner({ navigation }) {
         }
       }
       //ROOM 403 BLOCK 1
-      if (data == r403b1) {
+      if (data == room403b1) {
         if (diffInTimeThirdBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -866,7 +652,7 @@ export default function Scanner({ navigation }) {
         }
       }
       //ROOM 409 BLOCK 1
-      if (data == r409b1) {
+      if (data == room409b1) {
         if (diffInTimeThirdBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -916,7 +702,7 @@ export default function Scanner({ navigation }) {
     //DAY 4
     if (day == day4) {
       //ROOM 403 BLOCK 4
-      if (data == r403b4) {
+      if (data == room403b4) {
         if (diffInTimeFirstBlock > 35) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -963,7 +749,7 @@ export default function Scanner({ navigation }) {
         }
       }
       //ROOM 403 BLOCK 1
-      if (data == r403b1) {
+      if (data == room403b1) {
         if (diffInTimeSecondBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1010,7 +796,7 @@ export default function Scanner({ navigation }) {
         }
       }
       //ROOM 409 BLOCK 1
-      if (data == r409b1) {
+      if (data == room409b1) {
         if (diffInTimeSecondBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1057,7 +843,7 @@ export default function Scanner({ navigation }) {
         }
       }
       //ROOM 409 BLOCK 2
-      if (data == r409b2) {
+      if (data == room409b2) {
         if (diffInTimeThirdBlock > 10) {
           Alert.alert(
             "YOU ARE TOO EARLY TO THIS CLASS",
@@ -1102,20 +888,6 @@ export default function Scanner({ navigation }) {
             { text: "OK", onPress: () => navigation.navigate("Attenda") },
           ]);
         }
-      }
-      if (data == r403b3) {
-        Alert.alert(
-          "YOU DO NOT HAVE BLOCK 3 ON A DAY 4",
-          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-        );
-      }
-      if (data == r409b3) {
-        Alert.alert(
-          "YOU DO NOT HAVE BLOCK 3 ON A DAY 4",
-          "CHECK YOUR SCHEDULE TO FIND WHICH CLASS YOU HAVE RIGHT NOW",
-          [{ text: "OK", onPress: () => navigation.navigate("Attenda") }]
-        );
       }
     }
     setScanned(true);
